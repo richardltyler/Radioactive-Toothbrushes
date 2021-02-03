@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header';
+import Movies from '../Movies/Movies';
+import Card from '../Card/Card';
+import Film from '../Film/Film';
 import './App.css';
-import './scss';
 
 class App extends Component {
   constructor() {
@@ -13,8 +16,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-        </header>
       </div>
     );
   }
