@@ -1,6 +1,6 @@
 .App {
-  background-color: #FFFFFF;
-  min-height: 100vh;
+  /* background-color: #FFFFFF; */
+  /* min-height: 100vh; */
   /* display: flex;
   flex-direction: column;
   padding: 10px; */
@@ -9,5 +9,3 @@
   /* font-size: calc(10px + 2vmin); */
   /* color: white; */
 }
-
-
