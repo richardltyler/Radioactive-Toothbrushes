@@ -1,8 +1,8 @@
 import React from 'react';
 import './Movies.css'
+import Card from '../Card/Card'
 
 const Movies = ({movies}) => {
-//props passed in
 
   const movieCards = movies.map(movie => {
     return (
@@ -13,12 +13,12 @@ const Movies = ({movies}) => {
         title={movie.title}
       />
     )
-
   })
+
   return (
-    <div className='movies-container'>
+    <section className='movies-container'>
       {movieCards}
-    </div>
+    </section>
   )
 }
 
