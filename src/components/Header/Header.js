@@ -6,7 +6,7 @@ import './Header.css';
 const Header = () => {
   return (
     <header>
-      <img className='home-icon' src={homeButton} altText='home'></img>
+      <img className='home-icon' src={homeButton} alt='home'></img>
       <h1>Rancid Tarantulas</h1>
     </header>
   )
