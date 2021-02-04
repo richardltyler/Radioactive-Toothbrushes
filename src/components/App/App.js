@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Movies from '../Movies/Movies';
-// import Film from '../Film/Film';
+import Film from '../Film/Film';
 import movieData from './movie-data';
 import './App.css';
 
