@@ -2,13 +2,5 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* border-top: 8px solid #018994;
-  box-shadow: 0px 3px; */
-  /* I made this part centered so that as it the page is squished, the cards will be centered no matter how many are displayed on the page. I think an objectively better approach is to have multiple breakpoints Netflix has this, but Hulu has each card be responsive to the width of the page (prolly grid with fr's) */
-} 
-
-/* .movies-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  /* this made some bugs */
-/* }  */
+  border-top: 8px solid #018994;
+}
