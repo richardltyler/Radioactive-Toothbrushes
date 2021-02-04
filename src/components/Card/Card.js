@@ -8,9 +8,10 @@ const Card = ({id, poster, title}) => {
       <img
         src={poster}
         alt={title}
-        className={id}
+        id={id}
+        className='card-poster'
       />
-      <h3>{title}</h3>
+      <h2 className='card-title'>{title}</h2>
     </article>
   )
 }
