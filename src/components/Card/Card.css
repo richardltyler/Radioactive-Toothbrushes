@@ -6,13 +6,14 @@
   margin: .8rem;
 }
 
-.card:hover {
+/* .card:hover {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
   text-decoration: underline;
   color: #018994;
-}
+} */
+/* for mediaqueries */
 
 .card-poster {
   width: 100%;
@@ -27,8 +28,4 @@
   font-family: Rubik, sans-serif;
   font-weight: 300;
   height: 1.2rem;
-}
-
-.card-title:hover {
-  overflow: visible;
 }
