@@ -20,17 +20,27 @@ class Film extends Component {
     }
   }
 
+  // formatRuntime() {}
+
   render() {
     return (
       <article className='single-film'>
         <img src={this.state.poster_path} alt={this.state.title} />
         <article className='film-details'>
-          <h2 className='film-title'>{this.state.title}</h2>
+          <h2 className='film-title'>{this.state.title} {`${this.state.average_rating}`}</h2>
           <h3>{this.state.tagline}</h3>
           <div>
             <h4>{this.state.runtime}</h4>
             <h4>{this.state.release_date}</h4>
-            <h4>{this.state.genres}</h4>
+            <h4>{this.state.genres[0].name}</h4>
+          </div>
+          <article className='summary' aria-label='summary'>
+            <h3>Summary:</h3>
+            <p>{this.state.overview}</p>
+          </article>
+          <div>
+            <h4>{this.state.budget}</h4>
+            <h4>{this.state.revenue}</h4>
           </div>
         </article>
       </article>
