@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+.card {
+  width: 10rem;
+  height: 19rem;
+  margin: .8rem;
+}
+
+/* .card:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  text-decoration: underline;
+  color: #018994;
+} */
+/* for mediaqueries */
+
+.card-poster {
+  width: 100%;
+  box-shadow: 5px 3px 15px #018994;
+  border-radius: 8px;
+}
+
+.card-title{
+  margin-top: .5rem;
+  text-align: center;
+  font-size: 5vw;
+  font-family: Rubik, sans-serif;
+  font-weight: 300;
+  height: 1.2rem;
+}
