@@ -6,8 +6,8 @@ import './Header.css';
 const Header = () => {
   return (
     <header>
-      <img className='home-icon' src={homeButton} alt='home'></img>
       <h1>Radioactive Toothbrushes</h1>
+      <img className='home-icon' src={homeButton} alt='home'></img>
     </header>
   )
 }

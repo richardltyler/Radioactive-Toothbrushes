@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
 
 header {
-  height: 100px;
+  height: 5rem;
   background: #E92731;
   color: black;
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
-  align-items: flex-end;
-  padding: 10px;
+  align-items: center;
+  padding: .5rem;
 }
 
 
@@ -18,5 +17,5 @@ h1 {
 }
 
 .home-icon {
-  width: 3rem;
+  width: 2.2rem;
 }
