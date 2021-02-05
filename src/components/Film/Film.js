@@ -13,8 +13,14 @@ class Film extends Component {
       overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!", 
       average_rating: 6, 
       genres: [{id: 18, name:"Drama"}], 
-      budget:63000000, 
-      revenue:100853753, 
+      budget:63000000,
+      revenue:100853753,
+      // budget:0,  
+      // revenue:0, 
+      // the revenue and budget properties are commented out to test the 
+      // conditional rendering of their values at lines 73 and 74
+      // they can be tested by commenting lines 16 and 17
+      // and uncommenting lines 18 and 19
       runtime:139, 
       tagline: "It's a movie!" 
     }
@@ -66,11 +72,8 @@ class Film extends Component {
             <p>{this.state.overview}</p>
           </article>
           <div className='money-container'>
-            {/* <h4>{`Budget: ${this.state.budget}`}</h4>
-            <h4>{`Revenue: ${this.state.revenue}`}</h4> */}
-            {this.formatMoney('budget')}
-            {this.formatMoney('revenue')}
-            {/* <h4>{this.getProfit}</h4> */}
+            {this.state.budget > 0 && this.formatMoney('budget')}
+            {this.state.revenue > 0 && this.formatMoney('revenue')}
           </div>
         </section>
         </article>
