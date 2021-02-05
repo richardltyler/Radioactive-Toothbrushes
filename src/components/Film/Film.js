@@ -20,14 +20,17 @@ class Film extends Component {
     }
   }
 
-  // formatRuntime() {}
+  // formatMoney() {}
+
+  // formatDate() {}
+  // December 21 2016
 
   render() {
     return (
       <article className='single-film'>
         <img src={this.state.poster_path} alt={this.state.title} />
         <article className='film-details'>
-          <h2 className='film-title'>{this.state.title} {`${this.state.average_rating}`}</h2>
+          <h2 className='film-title'>{this.state.title} {`${this.state.average_rating}/10`}</h2>
           <h3>{this.state.tagline}</h3>
           <div>
             <h4>{this.state.runtime}</h4>
@@ -39,8 +42,9 @@ class Film extends Component {
             <p>{this.state.overview}</p>
           </article>
           <div>
-            <h4>{this.state.budget}</h4>
-            <h4>{this.state.revenue}</h4>
+            <h4>{`Budget: ${this.state.budget}`}</h4>
+            <h4>{`Revenue: ${this.state.revenue}`}</h4>
+            {/* <h4>{this.getProfit}</h4> */}
           </div>
         </article>
       </article>

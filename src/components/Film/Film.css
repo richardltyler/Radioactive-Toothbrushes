@@ -1,3 +1,8 @@
+.single-film {
+  display: grid;
+  
+}
+
 .single-film img {
   width: 30px;
 }
