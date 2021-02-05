@@ -28,26 +28,31 @@ class Film extends Component {
   render() {
     return (
       <article className='single-film'>
-        <img src={this.state.poster_path} alt={this.state.title} />
-        <article className='film-details'>
-          <h2 className='film-title'>{this.state.title} {`${this.state.average_rating}/10`}</h2>
-          <h3>{this.state.tagline}</h3>
-          <div>
-            <h4>{this.state.runtime}</h4>
-            <h4>{this.state.release_date}</h4>
-            <h4>{this.state.genres[0].name}</h4>
+        <section className='film-details'>
+          <div className='film-title-container'>
+            <h2 className='title'>{this.state.title}</h2> 
+            <h3 className='rating'>{`${this.state.average_rating}/10`}</h3>
           </div>
+          <h3>{this.state.tagline}</h3>
+          <div className='info-container'>
+            <h4>{`${this.state.runtime} min`}</h4>
+            <h4>{this.state.genres[0].name}</h4>
+            <h4>{this.state.release_date}</h4>
+          </div>
+        </section>
+        <img src={this.state.poster_path} alt={this.state.title} />
+        <section className='overview'>
           <article className='summary' aria-label='summary'>
             <h3>Summary:</h3>
             <p>{this.state.overview}</p>
           </article>
-          <div>
+          <div className='money-container'>
             <h4>{`Budget: ${this.state.budget}`}</h4>
             <h4>{`Revenue: ${this.state.revenue}`}</h4>
             {/* <h4>{this.getProfit}</h4> */}
           </div>
+        </section>
         </article>
-      </article>
     )
   }
 } 
