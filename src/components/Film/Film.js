@@ -20,12 +20,26 @@ class Film extends Component {
     }
   }
 
-  // formatMoney() {}
+  formatMoney(money) {
+    const amount = this.state[money];
+    const splitAmount = amount.toString().split('').reverse();
+    const commas = splitAmount.map((number, i) => {
+      if (i % 3 === 0 && i !== 0) {
+        return number + ',';
+      } else {
+        return number;
+      }
+    });
+    const formattedAmount = commas.reverse().join('');
+
+    const name = money.charAt(0).toUpperCase() + money.slice(1);
+
+    return <h4>{`${name}: $${formattedAmount}`}</h4>
+  }
 
   formatDate() {
     const newDate = new Date(this.state.release_date).toDateString();
     const dateWithoutDay = newDate.split(' ').slice(1);
-    console.log('hello, there');
     
     return <h4>{dateWithoutDay.join(' ')}</h4>
   }
@@ -52,8 +66,10 @@ class Film extends Component {
             <p>{this.state.overview}</p>
           </article>
           <div className='money-container'>
-            <h4>{`Budget: ${this.state.budget}`}</h4>
-            <h4>{`Revenue: ${this.state.revenue}`}</h4>
+            {/* <h4>{`Budget: ${this.state.budget}`}</h4>
+            <h4>{`Revenue: ${this.state.revenue}`}</h4> */}
+            {this.formatMoney('budget')}
+            {this.formatMoney('revenue')}
             {/* <h4>{this.getProfit}</h4> */}
           </div>
         </section>
