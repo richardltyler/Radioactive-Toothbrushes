@@ -20,7 +20,7 @@ class Film extends Component {
     }
   }
 
-  formatMoney(money) {
+  formatMoney = (money) => {
     const amount = this.state[money];
     const splitAmount = amount.toString().split('').reverse();
     const commas = splitAmount.map((number, i) => {
@@ -37,7 +37,7 @@ class Film extends Component {
     return <h4>{`${name}: $${formattedAmount}`}</h4>
   }
 
-  formatDate() {
+  formatDate = () => {
     const newDate = new Date(this.state.release_date).toDateString();
     const dateWithoutDay = newDate.split(' ').slice(1);
     
