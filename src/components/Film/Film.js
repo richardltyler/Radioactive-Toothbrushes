@@ -22,8 +22,13 @@ class Film extends Component {
 
   // formatMoney() {}
 
-  // formatDate() {}
-  // December 21 2016
+  formatDate() {
+    const newDate = new Date(this.state.release_date).toDateString();
+    const dateWithoutDay = newDate.split(' ').slice(1);
+    console.log('hello, there');
+    
+    return <h4>{dateWithoutDay.join(' ')}</h4>
+  }
 
   render() {
     return (
@@ -37,7 +42,7 @@ class Film extends Component {
           <div className='info-container'>
             <h4>{`${this.state.runtime} min`}</h4>
             <h4>{this.state.genres[0].name}</h4>
-            <h4>{this.state.release_date}</h4>
+            {this.formatDate()}
           </div>
         </section>
         <img src={this.state.poster_path} alt={this.state.title} />
