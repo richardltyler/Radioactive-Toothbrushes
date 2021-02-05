@@ -12,18 +12,27 @@ class Film extends Component {
       release_date: "2019-12-04", 
       overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!", 
       average_rating: 6, 
-      genres: [{id: 18, name:"Drama"}], 
+      genres: [{id: 18, name:"Drama"}],
+      // genres: [{id: 18, name:"Drama"}, {id: 18, name:"Drama"}, {id: 18, name:"Drama"}], 
+      // // getGenres() outcomes can be tested by commenting line 15 and uncommenting line 16
+
+      // genres: '',
+      // // conditional rendering for gerGenres() at line 73 can be tested by 
+      // // commenting lines 15 and 16 and uncommenting line 19
+      
       budget:63000000,
-      revenue:100853753,
-      // budget:0,  
-      // revenue:0, 
-      // the revenue and budget properties are commented out to test the 
-      // conditional rendering of their values at lines 73 and 74
-      // they can be tested by commenting lines 16 and 17
-      // and uncommenting lines 18 and 19
+      revenue:100853753, 
+      // conditional rendering of budget and revenue at lines 84 and 85
+      // can be tested by commenting lines 23 and 24
       runtime:139, 
       tagline: "It's a movie!" 
     }
+  }
+
+  getGenres = () => {
+    const genres = this.state.genres.map(genre => genre.name);
+  
+    return <h4>{genres.join(', ')}</h4>
   }
 
   formatMoney = (money) => {
@@ -61,7 +70,7 @@ class Film extends Component {
           <h3>{this.state.tagline}</h3>
           <div className='info-container'>
             <h4>{`${this.state.runtime} min`}</h4>
-            <h4>{this.state.genres[0].name}</h4>
+            {this.state.genres && this.getGenres()}
             {this.formatDate()}
           </div>
         </section>
