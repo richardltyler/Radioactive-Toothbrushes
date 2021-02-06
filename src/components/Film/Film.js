@@ -13,8 +13,8 @@ class Film extends Component {
       overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!",
       average_rating: 6,
       genres: [{id: 18, name:"Drama"}],
-      budget:63000000,
-      revenue:100853753,
+      budget:6300000,
+      revenue:1008537530,
       runtime:139,
       tagline: "It's a movie!"
     }
@@ -26,21 +26,31 @@ class Film extends Component {
     return <h4>{genres.join(', ')}</h4>
   }
 
-  formatMoney = (money) => {
-    const amount = this.state[money];
-    const splitAmount = amount.toString().split('').reverse();
-    const commas = splitAmount.map((number, i) => {
-      if (i % 3 === 0 && i !== 0) {
-        return number + ',';
-      } else {
-        return number;
-      }
-    });
-    const formattedAmount = commas.reverse().join('');
-
+  formatMoney = money => {
     const name = money.charAt(0).toUpperCase() + money.slice(1);
 
-    return <h4>{`${name}: $${formattedAmount}`}</h4>
+    return <h4>{`${name}:`}<br></br>{`${this.getNumberAmount(money)}`}</h4>
+  }
+
+  getNumberAmount = amount => {
+    const number = this.state[amount];
+    const numLength = parseInt(number).toString().length;
+  
+    if(numLength > 3 && numLength < 7) {
+      const newNum = parseFloat((number/1000).toFixed(1));
+      return `$${newNum}k`;
+  
+    } else if (numLength > 6 && numLength < 10) {
+      const newNum = parseFloat((number/1000000).toFixed(1));
+      return `$${newNum}mil`;
+  
+    } else if (numLength > 9) {
+      const newNum = parseFloat((number/1000000000).toFixed(1));
+      return `$${newNum}bil`;
+  
+    } else {
+      return `$${parseInt(number)}`
+    }
   }
 
   formatDate = () => {
