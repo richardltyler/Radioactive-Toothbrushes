@@ -12,7 +12,7 @@ const Header = ({goHome}) => {
         className='home-icon'
         src={homeButton}
         alt='home'
-        onClick={() => goHome()}
+        onClick={goHome}
         />
     </header>
   )
