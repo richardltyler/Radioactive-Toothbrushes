@@ -1,6 +1,6 @@
 import React from 'react';
 import './Movies.css'
-import Card from '../Card/Card'
+import Card from '../Cards/Cards'
 
 const Movies = ({movies, selectMovie}) => {
 

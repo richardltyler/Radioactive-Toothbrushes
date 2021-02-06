@@ -1,6 +1,5 @@
 import React from 'react';
-import './Card.css'
-//card -> cards?
+import './Cards.css'
 
 const Card = ({id, poster, title, selectMovie}) => {
   return (
