@@ -2,25 +2,30 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Movies from '../Movies/Movies';
 import Film from '../Film/Film';
-import movieData from './movie-data';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
-      currentMovie: {},
+      movies: [],
+      currentMovie: '',
       isHome: true
     }
   }
 
-  goHome = () => {
-    this.setState({ currentMovie: {}, isHome: true})
+  componentDidMount() {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => response.json())
+      .then(films => this.setState({movies: films.movies}));
   }
 
-  selectMovie = () => {
-    this.setState({ currentMovie: {}, isHome: false });
+  goHome = () => {
+    this.setState({ currentMovie: '', isHome: true})
+  }
+
+  selectMovie = (event) => {
+    this.setState({ currentMovie: event.target.closest('article').id, isHome: false });
   }
 
   render() {
@@ -29,7 +34,7 @@ class App extends Component {
         <Header goHome={this.goHome}/>
         <div className="App">
           {!this.state.isHome
-            ? <Film />
+            ? <Film currentMovie={this.state.currentMovie} />
             : <Movies
                 movies={this.state.movies}
                 selectMovie={this.selectMovie}

@@ -4,26 +4,17 @@ import './Film.css';
 class Film extends Component {
   constructor() {
     super();
-    this.state = {
-      id: 1,
-      title: "Fake Movie Title",
-      poster_path: "https://image.tmdb.org/t/p/original//7G2VvG1lU8q758uOqU6z2Ds0qpA.jpg",
-      backdrop_path: "https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg",
-      release_date: "2019-12-04",
-      overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!",
-      average_rating: 6,
-      genres: [{id: 18, name:"Drama"}],
-      budget:6300000,
-      revenue:1008537530,
-      runtime:139,
-      tagline: "It's a movie!"
-    }
+    this.state = {};
+  }
+
+  componentDidMount() {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.currentMovie}`)
+      .then(response => response.json())
+      .then(film => this.setState(film.movie))
   }
 
   getGenres = () => {
-    const genres = this.state.genres.map(genre => genre.name);
-
-    return <h4>{genres.join(', ')}</h4>
+    return <h4>{this.state.genres.join(', ')}</h4>
   }
 
   formatMoney = money => {
