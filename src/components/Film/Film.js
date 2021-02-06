@@ -14,7 +14,16 @@ class Film extends Component {
   componentDidMount() {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.currentMovie}`)
       .then(response => response.json())
-      .then(film => this.setState({currentMovie: film.movie, isLoading: false}))
+      .then(film => this.checkForError(film))
+      .catch(error => this.setState({isLoading: false, error: true }));
+  }
+
+  checkForError = film => {
+    if(film.error) {
+      this.setState({error: true, isLoading: false})
+    } else {
+      this.setState({currentMovie: film.movie, isLoading: false})
+    }
   }
 
   getGenres = () => {
@@ -71,8 +80,9 @@ class Film extends Component {
     return (
       <>
       {this.state.isLoading && <h2>Looking for your movie...</h2>}
+      {this.state.error && <h2>Oh no, we broke it!</h2>}
 
-      {!this.state.isLoading &&
+      {!this.state.isLoading && !this.state.error &&
         <article className='single-film'>
           <section className='film-details'>
             <div className='film-title-container'>
