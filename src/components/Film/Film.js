@@ -20,7 +20,12 @@ class Film extends Component {
   formatMoney = money => {
     const name = money.charAt(0).toUpperCase() + money.slice(1);
 
-    return <h4>{`${name}:`}<br></br>{`${this.getNumberAmount(money)}`}</h4>
+    return (
+      <>
+        <h4>{`${name}:`}</h4> 
+        <h5>{`${this.getNumberAmount(money)}`}</h5>
+      </>
+    )
   }
 
   getNumberAmount = amount => {
@@ -41,6 +46,14 @@ class Film extends Component {
   
     } else {
       return `$${parseInt(number)}`
+    }
+  }
+
+  checkForFinancialData = (amount) => {
+    if (amount) {
+      return this.getNumberAmount(amount);
+    } else {
+      
     }
   }
 
