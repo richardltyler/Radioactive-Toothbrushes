@@ -14,7 +14,7 @@ class Film extends Component {
   }
 
   getGenres = () => {
-    return <h4>{this.state.genres.join(', ')}</h4>
+    return <h4 className='genre-display'>{this.state.genres.join(', ')}</h4>
   }
 
   formatMoney = money => {
@@ -49,19 +49,18 @@ class Film extends Component {
     }
   }
 
-  checkForFinancialData = (amount) => {
-    if (amount) {
-      return this.getNumberAmount(amount);
-    } else {
-      
-    }
-  }
-
   formatDate = () => {
     const newDate = new Date(this.state.release_date).toDateString();
     const dateWithoutDay = newDate.split(' ').slice(1);
 
     return <h4>{dateWithoutDay.join(' ')}</h4>
+  }
+
+  formatRating = () => {
+    const rating = this.state.average_rating;
+    const formattedRating = parseFloat(rating.toFixed(1));
+
+    return <h3 className='rating'>{`${formattedRating}/10`}</h3>;
   }
 
   render() {
@@ -70,7 +69,7 @@ class Film extends Component {
         <section className='film-details'>
           <div className='film-title-container'>
             <h2 className='title'>{this.state.title}</h2>
-            <h3 className='rating'>{`${this.state.average_rating}/10`}</h3>
+            {this.state.average_rating && this.formatRating()}
           </div>
           <h3>{this.state.tagline}</h3>
           <div className='info-container'>
