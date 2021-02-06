@@ -5,10 +5,11 @@
   font-family: Rubik, sans-serif;
   display: grid;
   grid-template-columns: 2fr 4fr;
-  grid-template-areas: 
+  grid-template-areas:
     "details details"
     "poster overview";
   grid-gap: 10px;
+  text-align: initial;
 }
 
 .single-film img {
@@ -41,7 +42,7 @@
 .rating {
   align-self: flex-end;
   margin: 0;
-  
+
 }
 
 .overview {
@@ -92,5 +93,5 @@
 
 .summary>p {
   font-weight: 100;
-  
+
 }
