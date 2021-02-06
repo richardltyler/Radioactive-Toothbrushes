@@ -2,10 +2,9 @@ import React from 'react';
 import './Card.css'
 //card -> cards?
 
-const Card = ({id, poster, title}) => {
+const Card = ({id, poster, title, selectMovie}) => {
   return (
-    <article className='card' id={id}>
-    //I had to remove the onClick bc when is was even commented out, react/webpack "Read" that is was still there. 
+    <article className='card' id={id} onClick={selectMovie}>
       <img
         src={poster}
         alt={title}
