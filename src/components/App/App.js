@@ -10,14 +10,23 @@ class App extends Component {
     this.state = {
       movies: [],
       currentMovie: '',
-      isHome: true
+      isHome: true,
+      isLoading: true,
+      error: false
     }
   }
 
   componentDidMount() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/')
       .then(response => response.json())
-      .then(films => this.setState({movies: films.movies}));
+      .then(films => {
+        if(films.error) {
+          this.setState({error: true, isLoading: false})
+        } else {
+          this.setState({movies: films.movies, isLoading: false})
+        }
+      })
+      .catch(error => this.setState({isLoading:false, error: true}))
   }
 
   goHome = () => {
@@ -33,6 +42,8 @@ class App extends Component {
       <>
         <Header goHome={this.goHome}/>
         <div className="App">
+          {this.state.isLoading && <h2>Please wait...</h2>}
+          {this.state.error && <h2>💥We are having a technical difficulty.💥</h2>}
           {!this.state.isHome
             ? <Film currentMovie={this.state.currentMovie} />
             : <Movies
