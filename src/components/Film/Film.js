@@ -13,17 +13,8 @@ class Film extends Component {
       overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!",
       average_rating: 6,
       genres: [{id: 18, name:"Drama"}],
-      // genres: [{id: 18, name:"Drama"}, {id: 18, name:"Drama"}, {id: 18, name:"Drama"}],
-      // // getGenres() outcomes can be tested by commenting line 15 and uncommenting line 16
-
-      // genres: '',
-      // // conditional rendering for gerGenres() at line 73 can be tested by
-      // // commenting lines 15 and 16 and uncommenting line 19
-
       budget:63000000,
       revenue:100853753,
-      // conditional rendering of budget and revenue at lines 84 and 85
-      // can be tested by commenting lines 23 and 24
       runtime:139,
       tagline: "It's a movie!"
     }
@@ -34,8 +25,6 @@ class Film extends Component {
 
     return <h4>{genres.join(', ')}</h4>
   }
-//is there a way to adjust so that the genres stay on one line rather than getting crunched together?
-
 
   formatMoney = (money) => {
     const amount = this.state[money];
