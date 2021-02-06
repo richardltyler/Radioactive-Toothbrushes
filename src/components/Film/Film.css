@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+.single-film {
+  margin: 1rem;
+  font-family: Rubik, sans-serif;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 4fr;
+  grid-template-areas: 
+    "details details"
+    "poster overview";
+  grid-gap: 10px;
+}
+
+.single-film img {
+  grid-area: poster;
+  width: 100%;
+}
+
+.single-film h3 {
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+.film-details {
+  grid-area: details;
+
+}
+
+.film-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin: 0;
+  text-decoration: underline;
+}
+
+.rating {
+  align-self: flex-end;
+  margin: 0;
+  
+}
+
+.overview {
+  grid-area: overview;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: .8rem;
+}
+
+.info-container h4 {
+  margin-top: 0;
+  border-left: 3px solid black;
+  text-align: center;
+  background: white;
+  width: 100%;
+}
+
+.info-container h4:nth-of-type(1) {
+  border: 0;
+  text-align: initial;
+}
+
+.money-container {
+  font-size: 11px;
+  font-weight: 100;
+}
+
+.summary {
+  width: 100%;
+}
+
+.summary p {
+  font-weight: 100;
+  
+}

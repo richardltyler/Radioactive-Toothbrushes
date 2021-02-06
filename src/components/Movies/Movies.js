@@ -1,8 +1,8 @@
 import React from 'react';
 import './Movies.css'
-import Card from '../Card/Card'
+import Card from '../Cards/Cards'
 
-const Movies = ({movies}) => {
+const Movies = ({movies, selectMovie}) => {
 
   const movieCards = movies.map(movie => {
     return (
@@ -11,6 +11,7 @@ const Movies = ({movies}) => {
         id={movie.id}
         poster={movie.poster_path}
         title={movie.title}
+        selectMovie={selectMovie}
       />
     )
   })

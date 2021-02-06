@@ -3,11 +3,17 @@ import React from 'react';
 import homeButton from './home.png';
 import './Header.css';
 
-const Header = () => {
+const Header = ({goHome}) => {
+
   return (
     <header>
       <h1>Radioactive Toothbrushes</h1>
-      <img className='home-icon' src={homeButton} alt='home'></img>
+      <img
+        className='home-icon'
+        src={homeButton}
+        alt='home'
+        onClick={goHome}
+        />
     </header>
   )
 }
