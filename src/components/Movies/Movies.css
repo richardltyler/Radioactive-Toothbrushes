@@ -2,5 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border-top: 8px solid #018994;
+  overflow: auto;
+  margin-top: 7rem;
 }

@@ -8,6 +8,9 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: .5rem;
+  position: fixed;
+  width: 100%;
+  border-bottom: 8px solid #018994;
 }
 
 h1 {
@@ -21,6 +24,7 @@ h1 {
 .home-icon {
   align-self: flex-start;
   width: 2rem;
+  margin-right: 0.9rem;
 }
 
 /* .home-icon:hover {
