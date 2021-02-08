@@ -1,5 +1,6 @@
 // import { render } from '@testing-library/react';
 import React from 'react';
+import PropTypes from 'prop-types';
 import homeButton from './home.png';
 import './Header.css';
 
@@ -19,3 +20,7 @@ const Header = ({goHome}) => {
 }
 
 export default Header;
+
+Header.propTypes = {
+  goHome: PropTypes.func
+}
