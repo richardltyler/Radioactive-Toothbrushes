@@ -22,5 +22,5 @@ const Header = ({goHome}) => {
 export default Header;
 
 Header.propTypes = {
-  goHome: PropTypes.func
+  goHome: PropTypes.func.isRequired
 }

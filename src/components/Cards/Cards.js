@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Cards.css'
 
 const Card = ({id, poster, title, selectMovie}) => {
@@ -15,3 +16,10 @@ const Card = ({id, poster, title, selectMovie}) => {
 }
 
 export default Card;
+
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+  poster: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  selectMovie: PropTypes.func.isRequired
+}
