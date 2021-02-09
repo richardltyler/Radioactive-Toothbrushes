@@ -29,7 +29,23 @@ describe('Radioactive Toothbrushes', () => {
   });
 
   describe('RT Film', () => {
-    //other stuff
+    it('Should be able to display a single movie\'s details', () => {
+      cy.get('.movies-container > article')
+        .contains('Mulan')
+        .click()
+        //Cypress times out
+        .should('have.class', 'single-film')
+        .and('be.visible')
+    })
+    //title
+    //rating
+    //length
+    //genres
+    //date
+    //img
+    //summary
+    //budget
+    //revenue
   });
 
   describe('RT Movies', () => {
