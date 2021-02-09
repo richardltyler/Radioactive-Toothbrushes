@@ -40,14 +40,31 @@ describe('Radioactive Toothbrushes', () => {
   });
 
   describe('RT Film', () => {
-    //how do we test that API is functioning?
+    it('Should have a loading message', () => {
+      //set up to access Film
+      cy.get('section > article')
+        .contains('Mulan')
+        .click()
+        //inside of Film
+        .get('h2').should('be.visible')
+    });
+
     //how do we test API isn't functioning?
+    // it('Should have an error message', () => {
+    //   cy.get('section > article')
+    //     .contains('Mulan')
+    //     .click()
+    //     .get('h2').should('be.visible')
+    // });
+
+    //how do we test that API is functioning?
     it('Should be able to display a single movie\'s details', () => {
       //set up to access Film
       cy.get('section > article')
         .contains('Mulan')
         .click()
         //inside of Film
+        .get('h2').should('be.visible')
         .get('article').should('be.visible')
         .get('article > section > div').should('have.class', 'film-title-container')
         .get('article > img').should('be.visible')
