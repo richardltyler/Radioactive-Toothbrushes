@@ -1,6 +1,3 @@
-//What do we want to test?
-//describe('RadioActive')
-
 describe('Radioactive Toothbrushes', () => {
 
   const baseURL = 'http://localhost:3000/';
@@ -8,10 +5,9 @@ describe('Radioactive Toothbrushes', () => {
   beforeEach(() => {
     cy.visit(baseURL);
   });
-  // how do we test how many movies there are in the API
 
   describe('App', () => {
-
+    // how do we test how many movies there are in the API
   });
 
   describe('RT Header', () => {
@@ -23,29 +19,23 @@ describe('Radioactive Toothbrushes', () => {
       cy.get('h1').contains('Radioactive Toothbrushes')
     });
 
-    it('Should have a clickable home icon', () => {
-      cy.get('img').click();
+    it('Should click home icon to navigate back to main', () => {
+      cy.get('section > article')
+        .contains('Mulan')
+        .click()
+      cy.get('header > img').click();
     })
   });
 
   describe('RT Film', () => {
     it('Should be able to display a single movie\'s details', () => {
-      cy.get('.movies-container > article')
+      cy.get('section > article')
         .contains('Mulan')
         .click()
-        //Cypress times out
-        .should('have.class', 'single-film')
-        .and('be.visible')
+        .get('article').should('be.visible')
+        .get('article > section > div').should('have.class', 'film-title-container').and('have', 'Mulan')
+
     })
-    //title
-    //rating
-    //length
-    //genres
-    //date
-    //img
-    //summary
-    //budget
-    //revenue
   });
 
   describe('RT Movies', () => {
