@@ -29,12 +29,16 @@ describe('Radioactive Toothbrushes', () => {
 
   describe('RT Film', () => {
     it('Should be able to display a single movie\'s details', () => {
+      //set up to access Film
       cy.get('section > article')
         .contains('Mulan')
         .click()
+        //inside of Film
         .get('article').should('be.visible')
-        .get('article > section > div').should('have.class', 'film-title-container').and('have', 'Mulan')
-
+        .get('article > section > div').should('have.class', 'film-title-container')
+        .get('article > img').should('be.visible')
+        .get('article > section > article > h3').contains('Summary')
+        .get('article > section > article > h3').contains('Summary')
     })
   });
 
