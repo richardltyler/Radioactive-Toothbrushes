@@ -11,6 +11,7 @@ header {
   position: fixed;
   width: 100%;
   border-bottom: 8px solid #018994;
+  z-index: 1;
 }
 
 h1 {
