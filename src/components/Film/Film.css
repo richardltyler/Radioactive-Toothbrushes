@@ -10,11 +10,15 @@
     "poster overview";
   grid-gap: 10px;
   text-align: initial;
+  /* max-width: px; */
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .single-film img {
   grid-area: poster;
   width: 100%;
+  max-width: 330px;
 }
 
 .single-film h3 {
@@ -64,6 +68,7 @@
   text-align: center;
   background: white;
   width: 100%;
+  /* max-width: px; */
 }
 
 .info-container>h4:nth-of-type(1) {
@@ -96,4 +101,20 @@
   font-weight: 100;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+@media screen and (min-width: 400px) {
+  .single-film {
+    
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .single-film {
+    grid-template-columns: 330px 1fr;
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
 }
