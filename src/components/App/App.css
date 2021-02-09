@@ -6,3 +6,8 @@
   font-size: calc(10px + 2vmin);
   text-align: center;
 }
+
+h2 {
+  position: relative;
+  top: 6rem;
+}
