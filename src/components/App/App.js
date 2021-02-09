@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import Error from '../Error/Error';
 import Movies from '../Movies/Movies';
@@ -11,7 +11,6 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      isHome: true,
       isLoading: true,
       error: false
     }
@@ -32,26 +31,21 @@ class App extends Component {
     }
   }
 
-  goHome = () => {
-    this.setState({ currentMovie: '', isHome: true})
-  }
-
   render() {
     return (
       <>
-        <Header goHome={this.goHome}/>
+        <Header />
         <div className="App">
           {this.state.isLoading && <h2 className='message'>Please wait...</h2>}
-          //add path for error
           {this.state.error && <Error />}
+
           <Route
             exact
             path='/'
             render={() =>
               <Movies
                 movies={this.state.movies}
-              />
-            }
+              />}
           />
 
           <Route
@@ -61,8 +55,7 @@ class App extends Component {
               const myMovieID = match.params.id;
               return <Film id={myMovieID}/>
             }
-          }
-         />
+          } />
         </div>
       </>
     );
