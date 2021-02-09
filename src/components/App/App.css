@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-h2 {
+.message {
   position: relative;
   top: 6rem;
 }

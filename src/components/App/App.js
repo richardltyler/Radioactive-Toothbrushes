@@ -44,8 +44,8 @@ class App extends Component {
       <>
         <Header goHome={this.goHome}/>
         <div className="App">
-          {this.state.isLoading && <h2>Please wait...</h2>}
-          {this.state.error && <h2>💥We are having a technical difficulty.💥</h2>}
+          {this.state.isLoading && <h2 className='message'>Please wait...</h2>}
+          {this.state.error && <h2 className='message'>💥We are having a technical difficulty.💥</h2>}
           {!this.state.isHome
             ? <Film currentMovie={this.state.currentMovie} />
             : <Movies
