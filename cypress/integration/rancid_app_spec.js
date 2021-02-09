@@ -23,11 +23,8 @@ describe('Radioactive Toothbrushes', () => {
     // how do we test how many movies there are in the API
     it('Should display the listed movies', () => {
       cy.get('.movies-container')
-        // // .should('be.visible')
-        // commented out until we implement async testing
-        // this one is failing cuz until the fetch API runs, the container is ther, but it is empty so at a height of 0px it is technically invisible 
-        // uncomment and read failed test error 
-    })
+        .should('be.visible')
+    });
   });
 
   describe('RT Header', () => {
