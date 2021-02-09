@@ -8,8 +8,8 @@ describe('Radioactive Toothbrushes', () => {
   beforeEach(() => {
     cy.visit(baseURL);
   });
- 
   // how do we test how many movies there are in the API
+
   describe('App', () => {
 
   });
@@ -33,9 +33,15 @@ describe('Radioactive Toothbrushes', () => {
   });
 
   describe('RT Movies', () => {
-    //other stuff
-    //is it displaying cards
-    //section?
+    it('Should display many movie cards', () => {
+      cy.get('.movies-container').should(($article) => {
+        expect($article).to.have.length
+        expect($article.first()).to.contain('Money Plane')
+      })
+    })
+    it('Should contain clickable movie cards', () =>{
+      cy.get('.movies-container > article').contains('Money Plane').click()
+    })
   });
 
   describe('RT Card', () => {
