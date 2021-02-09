@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, NavLink } from 'react-router-dom';
 import Header from '../Header/Header';
 import Error from '../Error/Error';
 import Movies from '../Movies/Movies';
@@ -46,14 +47,19 @@ class App extends Component {
         <Header goHome={this.goHome}/>
         <div className="App">
           {this.state.isLoading && <h2 className='message'>Please wait...</h2>}
+          //add path for error
           {this.state.error && <Error />}
-          {!this.state.isHome
-            ? <Film currentMovie={this.state.currentMovie} />
-            : <Movies
+          //display home = movies component
+          <Route
+            path='/'
+            render={() =>
+              <Movies
                 movies={this.state.movies}
                 selectMovie={this.selectMovie}
               />
-          }
+            }
+          />
+
         </div>
       </>
     );
@@ -61,3 +67,14 @@ class App extends Component {
 }
 
 export default App;
+
+//movies is home path
+// path='/'
+
+// {!this.state.isHome
+  //   ? <Film currentMovie={this.state.currentMovie} />
+  //   : <Movies
+  //       movies={this.state.movies}
+  //       selectMovie={this.selectMovie}
+  //     />
+  // }
