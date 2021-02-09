@@ -100,7 +100,7 @@ class Film extends Component {
           <img src={this.state.currentMovie.poster_path} alt={this.state.currentMovie.title} />
           <section className='overview'>
             <article className='summary' aria-label='summary'>
-              <h3>Summary:</h3>
+              <h3 className='summary-headline'>Summary:</h3>
               <p>{this.state.currentMovie.overview}</p>
             </article>
             <div className='money-container'>
