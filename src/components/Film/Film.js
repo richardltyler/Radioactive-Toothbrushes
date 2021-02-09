@@ -13,7 +13,7 @@ class Film extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.currentMovie}`)
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
       .then(response => response.json())
       .then(film => this.checkForError(film))
       .catch(error => this.setState({isLoading: false, error: true }));

@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import './Cards.css'
 
-const Card = ({id, poster, title, selectMovie}) => {
+const Card = ({id, poster, title}) => {
   return (
-    <article className='card' id={id} onClick={selectMovie}>
-      <img
-        src={poster}
-        alt={title}
-        className='card-poster'
-      />
-      <h2 className='card-title'>{title}</h2>
-    </article>
+    <NavLink to={`/${id}`}>
+      <article className='card' id={id}>
+        <img
+          src={poster}
+          alt={title}
+          className='card-poster'
+        />
+        <h2 className='card-title'>{title}</h2>
+      </article>
+    </NavLink>
   )
 }
 
@@ -21,5 +24,4 @@ Card.propTypes = {
   id: PropTypes.number.isRequired,
   poster: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  selectMovie: PropTypes.func.isRequired
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Movies.css'
 import Card from '../Cards/Cards'
 
-const Movies = ({movies, selectMovie}) => {
+const Movies = ({ movies }) => {
 
   const movieCards = movies.map(movie => {
     return (
@@ -12,7 +12,6 @@ const Movies = ({movies, selectMovie}) => {
         id={movie.id}
         poster={movie.poster_path}
         title={movie.title}
-        selectMovie={selectMovie}
       />
     )
   })
@@ -28,5 +27,4 @@ export default Movies;
 
 Movies.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  selectMovie: PropTypes.func.isRequired
 }

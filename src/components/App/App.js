@@ -11,7 +11,6 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      currentMovie: '',
       isHome: true,
       isLoading: true,
       error: false
@@ -37,10 +36,6 @@ class App extends Component {
     this.setState({ currentMovie: '', isHome: true})
   }
 
-  selectMovie = (event) => {
-    this.setState({ currentMovie: event.target.closest('article').id, isHome: false });
-  }
-
   render() {
     return (
       <>
@@ -49,17 +44,25 @@ class App extends Component {
           {this.state.isLoading && <h2 className='message'>Please wait...</h2>}
           //add path for error
           {this.state.error && <Error />}
-          //display home = movies component
           <Route
+            exact
             path='/'
             render={() =>
               <Movies
                 movies={this.state.movies}
-                selectMovie={this.selectMovie}
               />
             }
           />
 
+          <Route
+            exact
+            path='/:id'
+            render={( { match } ) => {
+              const myMovieID = match.params.id;
+              return <Film id={myMovieID}/>
+            }
+          }
+         />
         </div>
       </>
     );
@@ -67,14 +70,3 @@ class App extends Component {
 }
 
 export default App;
-
-//movies is home path
-// path='/'
-
-// {!this.state.isHome
-  //   ? <Film currentMovie={this.state.currentMovie} />
-  //   : <Movies
-  //       movies={this.state.movies}
-  //       selectMovie={this.selectMovie}
-  //     />
-  // }
