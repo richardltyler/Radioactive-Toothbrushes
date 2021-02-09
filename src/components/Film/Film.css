@@ -10,7 +10,6 @@
     "poster overview";
   grid-gap: 10px;
   text-align: initial;
-  /* max-width: px; */
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -21,10 +20,8 @@
   max-width: 330px;
 }
 
-.single-film h3 {
-  font-size: 1rem;
-  margin-top: 0;
-  margin-bottom: .2rem;
+.overview {
+  grid-area: overview;
 }
 
 .film-details {
@@ -47,11 +44,6 @@
 .rating {
   align-self: flex-end;
   margin: 0;
-  /* font-size: 5vw; */
-}
-
-.overview {
-  grid-area: overview;
 }
 
 .info-container {
