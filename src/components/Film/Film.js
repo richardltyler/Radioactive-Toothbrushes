@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Error from '../Error/Error'
 import './Film.css';
 
 class Film extends Component {
@@ -80,7 +81,7 @@ class Film extends Component {
     return (
       <>
       {this.state.isLoading && <h2>Looking for your movie...</h2>}
-      {this.state.error && <h2>Oh no, we broke it!</h2>}
+      {this.state.error && <Error />}
 
       {!this.state.isLoading && !this.state.error &&
         <article className='single-film'>
