@@ -74,7 +74,7 @@ class Film extends Component {
     const rating = this.state.currentMovie.average_rating;
     const formattedRating = parseFloat(rating.toFixed(1));
 
-    return <h3 className='rating'>{`${formattedRating}/10`}</h3>;
+    return <h3 className='rating'>{`🪥${formattedRating}/10`}</h3>;
   }
 
   render() {
