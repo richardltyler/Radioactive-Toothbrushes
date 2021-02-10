@@ -5,6 +5,10 @@
   text-decoration: none;
 }
 
+.nav:visited {
+  color: #E92731;
+}
+
 .card {
   height: 19rem;
 }
