@@ -5,8 +5,12 @@ import './Cards.css'
 
 const Card = ({id, poster, title}) => {
   return (
-    <NavLink to={`/${id}`}>
-      <article className='card' id={id}>
+    <NavLink className='nav' to={`/${id}`}>
+      {/* adding the NavLink here made the title of the card turn blue and be underlined so I put a calssname on it to change it back to black with no underline
+      
+      its in Cards.css
+      */}
+      <article className='card' id={title}>
         <img
           src={poster}
           alt={title}
