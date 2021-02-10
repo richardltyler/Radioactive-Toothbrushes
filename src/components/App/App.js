@@ -37,7 +37,13 @@ class App extends Component {
         <div className="App">
           {this.state.isLoading && <h2 className='message'>Please wait...</h2>}
           {this.state.error && <Error />}
-
+          {/* ok so I couldn't figure out how to get error to be routed without it breaking everything
+          so I went ahead and just left it conditional
+          
+          I've also changed the Film path back to just the id
+          
+          I think for MVP we just don't route Error 
+          */}
           {!this.state.error && 
             <Route
               exact
@@ -52,7 +58,7 @@ class App extends Component {
           {!this.state.error && 
             <Route
               exact
-              path='/film/:id'
+              path='/:id'
               render={( { match } ) => {
                 const myMovieID = match.params.id;
                 return <Film id={myMovieID}/>
