@@ -18,18 +18,25 @@ class App extends Component {
 
   componentDidMount() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/')
-      .then(response => response.json())
-      .then(films => this.checkForError(films))
-      .catch(error => this.setState({isLoading:false, error: true}))
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+
+        } else {
+          this.setState({error: true, isLoading: false});
+        }
+      })
+      .then(films => this.setState({movies: films.movies, isLoading: false}))
+      .catch(() => this.setState({isLoading: false, error: true}))
   }
 
-  checkForError = films => {
-    if(films.error) {
-      this.setState({error: true, isLoading: false})
-    } else {
-      this.setState({movies: films.movies, isLoading: false})
-    }
-  }
+  // checkForError = films => {
+  //   if(!films) {
+  //     this.setState({error: true, isLoading: false})
+  //   } else {
+  //     this.setState({movies: films.movies, isLoading: false})
+  //   }
+  // }
 
   render() {
     return (
@@ -39,23 +46,27 @@ class App extends Component {
           {this.state.isLoading && <h2 className='message'>Please wait...</h2>}
           {this.state.error && <Error />}
 
-          <Route
-            exact
-            path='/'
-            render={() =>
-              <Movies
-                movies={this.state.movies}
-              />}
-          />
+          {!this.state.error && 
+            <Route
+              exact
+              path='/'
+              render={() =>
+                <Movies
+                  movies={this.state.movies}
+                />}
+            />
+          }
 
-          <Route
-            exact
-            path='/:id'
-            render={( { match } ) => {
-              const myMovieID = match.params.id;
-              return <Film id={myMovieID}/>
-            }
-          } />
+          {!this.state.error && 
+            <Route
+              exact
+              path='/film/:id'
+              render={( { match } ) => {
+                const myMovieID = match.params.id;
+                return <Film id={myMovieID}/>
+              } }
+            />
+          }
         </div>
       </>
     );

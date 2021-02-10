@@ -5,7 +5,7 @@ import './Cards.css'
 
 const Card = ({id, poster, title}) => {
   return (
-    <NavLink to={`/${id}`}>
+    <NavLink to={`/film/${id}`}>
       <article className='card' id={id}>
         <img
           src={poster}
