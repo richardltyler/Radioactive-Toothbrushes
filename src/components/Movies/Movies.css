@@ -1,6 +1,9 @@
 .movies-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  border-top: 8px solid #018994;
+  width: 90%;
+  margin-top: 9rem;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+  grid-gap: 16px;
 }
+
+

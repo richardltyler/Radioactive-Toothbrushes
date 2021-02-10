@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router-dom';
 import Header from '../Header/Header';
+import Error from '../Error/Error';
 import Movies from '../Movies/Movies';
 import Film from '../Film/Film';
+import apiCalls from '../../api-calls.js';
 import './App.css';
 
 class App extends Component {
@@ -9,50 +12,60 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      currentMovie: '',
-      isHome: true,
       isLoading: true,
       error: false
     }
   }
 
-  componentDidMount() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/')
-      .then(response => response.json())
-      .then(films => this.checkForError(films))
-      .catch(error => this.setState({isLoading:false, error: true}))
+   componentDidMount() {
+    apiCalls.getAllMovies()
+      .then(response => this.isResponseOk(response))
+      .then(films => this.setState({movies: films.movies, isLoading: false}))
+      .catch(() => this.setState({isLoading: false, error: true}))
   }
 
-  checkForError = films => {
-    if(films.error) {
-      this.setState({error: true, isLoading: false})
+  isResponseOk = (response) => {
+    if (response.ok) {
+      return response.json();
     } else {
-      this.setState({movies: films.movies, isLoading: false})
+      this.setState({error: true, isLoading: false});
     }
-  }
-
-  goHome = () => {
-    this.setState({ currentMovie: '', isHome: true})
-  }
-
-  selectMovie = (event) => {
-    this.setState({ currentMovie: event.target.closest('article').id, isHome: false });
   }
 
   render() {
     return (
       <>
-        <Header goHome={this.goHome}/>
+        <Header />
         <div className="App">
-          {this.state.isLoading && <h2>Please wait...</h2>}
-          {this.state.error && <h2>💥We are having a technical difficulty.💥</h2>}
-          {!this.state.isHome
-            ? <Film currentMovie={this.state.currentMovie} />
-            : <Movies
-                movies={this.state.movies}
-                selectMovie={this.selectMovie}
-              />
-          }
+          {this.state.isLoading && <h2 className='message'>Please wait...</h2>}
+
+          <Route
+            exact
+            path='/'
+            render={() => {
+                if(!this.state.error){
+                  return <Movies movies={this.state.movies} />
+                } else {
+                  return <Redirect to='/error' />
+                }
+              }
+            }
+          />
+
+          <Route
+            exact
+            path='/film/:id'
+            render={( { match } ) => {
+              const myMovieID = match.params.id;
+              return <Film id={myMovieID}/>
+            } }
+          />
+
+          <Route
+            exact
+            path='/error'
+            render={() => <Error />}
+          />
         </div>
       </>
     );

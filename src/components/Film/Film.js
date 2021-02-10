@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import apiCalls from './../../api-calls';
 import './Film.css';
 
 class Film extends Component {
@@ -12,11 +14,11 @@ class Film extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.currentMovie}`)
-      .then(response => response.json())
+    apiCalls.getOneMovie(this.props.id)
       .then(film => this.checkForError(film))
-      .catch(error => this.setState({isLoading: false, error: true }));
+      .catch(() => this.setState({isLoading: false, error: true }));
   }
+  //a single object with further details (more data)
 
   checkForError = film => {
     if(film.error) {
@@ -73,14 +75,16 @@ class Film extends Component {
     const rating = this.state.currentMovie.average_rating;
     const formattedRating = parseFloat(rating.toFixed(1));
 
-    return <h3 className='rating'>{`${formattedRating}/10`}</h3>;
+    return <h3 className='rating'>{`🪥${formattedRating}/10`}</h3>;
   }
 
   render() {
     return (
+
       <>
       {this.state.isLoading && <h2>Looking for your movie...</h2>}
-      {this.state.error && <h2>Oh no, we broke it!</h2>}
+
+      {this.state.error && <Redirect to='/error' />}
 
       {!this.state.isLoading && !this.state.error &&
         <article className='single-film'>
@@ -99,7 +103,7 @@ class Film extends Component {
           <img src={this.state.currentMovie.poster_path} alt={this.state.currentMovie.title} />
           <section className='overview'>
             <article className='summary' aria-label='summary'>
-              <h3>Summary:</h3>
+              <h3 className='summary-headline'>Summary:</h3>
               <p>{this.state.currentMovie.overview}</p>
             </article>
             <div className='money-container'>
