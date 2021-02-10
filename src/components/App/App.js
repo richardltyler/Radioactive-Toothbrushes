@@ -30,7 +30,7 @@ class App extends Component {
       .then(films => this.setState({movies: films.movies, isLoading: false}))
       .catch(() => this.setState({isLoading: false, error: true}))
   }
-  
+
 
   render() {
     return (
@@ -41,32 +41,29 @@ class App extends Component {
           {this.state.error && <Error />}
           {/* ok so I couldn't figure out how to get error to be routed without it breaking everything
           so I went ahead and just left it conditional
-          
-          I've also changed the Film path back to just the id
-          
-          I think for MVP we just don't route Error 
-          */}
-          {!this.state.error && 
-            <Route
-              exact
-              path='/'
-              render={() =>
-                <Movies
-                  movies={this.state.movies}
-                />}
-            />
-          }
 
-          {!this.state.error && 
-            <Route
-              exact
-              path='/:id'
-              render={( { match } ) => {
-                const myMovieID = match.params.id;
-                return <Film id={myMovieID}/>
-              } }
-            />
-          }
+          I've also changed the Film path back to just the id
+
+          I think for MVP we just don't route Error
+          */}
+
+          <Route
+            exact
+            path='/'
+            render={() =>
+              <Movies movies={this.state.movies} />
+            }
+          />
+
+
+          <Route
+            exact
+            path='/film/:id'
+            render={( { match } ) => {
+              const myMovieID = match.params.id;
+              return <Film id={myMovieID}/>
+            } }
+          />
         </div>
       </>
     );
