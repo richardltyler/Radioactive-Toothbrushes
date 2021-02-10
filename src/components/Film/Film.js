@@ -22,7 +22,6 @@ class Film extends Component {
   checkForError = film => {
     if(film.error) {
       this.setState({error: true, isLoading: false})
-
     } else {
       this.setState({currentMovie: film.movie, isLoading: false})
     }
