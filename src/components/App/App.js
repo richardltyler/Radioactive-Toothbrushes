@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Error from '../Error/Error';
 import Movies from '../Movies/Movies';
 import Film from '../Film/Film';
+import apiCalls from '../../api-calls.js';
 import './App.css';
 
 class App extends Component {
@@ -16,8 +17,8 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/')
+   componentDidMount() {
+    apiCalls.getAllMovies()
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -29,6 +30,7 @@ class App extends Component {
       .then(films => this.setState({movies: films.movies, isLoading: false}))
       .catch(() => this.setState({isLoading: false, error: true}))
   }
+  
 
   render() {
     return (

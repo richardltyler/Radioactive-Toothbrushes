@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Error from '../Error/Error'
+import apiCalls from './../../api-calls';
 import './Film.css';
 
 class Film extends Component {
@@ -13,15 +14,15 @@ class Film extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
-      .then(response => response.json())
+    apiCalls.getOneMovie(this.props.id)
       .then(film => this.checkForError(film))
-      .catch(error => this.setState({isLoading: false, error: true }));
+      .catch(() => this.setState({isLoading: false, error: true }));
   }
 
   checkForError = film => {
     if(film.error) {
       this.setState({error: true, isLoading: false})
+
     } else {
       this.setState({currentMovie: film.movie, isLoading: false})
     }
