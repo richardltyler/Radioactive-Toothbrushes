@@ -19,17 +19,18 @@ class App extends Component {
 
    componentDidMount() {
     apiCalls.getAllMovies()
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          this.setState({error: true, isLoading: false});
-        }
-      })
+      .then(response => this.isResponseOk(response))
       .then(films => this.setState({movies: films.movies, isLoading: false}))
       .catch(() => this.setState({isLoading: false, error: true}))
   }
 
+  isResponseOk = (response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      this.setState({error: true, isLoading: false});
+    }
+  }
 
   render() {
     return (

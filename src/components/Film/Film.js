@@ -18,6 +18,7 @@ class Film extends Component {
       .then(film => this.checkForError(film))
       .catch(() => this.setState({isLoading: false, error: true }));
   }
+  //a single object with further details (more data)
 
   checkForError = film => {
     if(film.error) {
@@ -83,7 +84,7 @@ class Film extends Component {
       <>
       {this.state.isLoading && <h2>Looking for your movie...</h2>}
 
-      {this.state.error ? <Redirect to='/error' /> : null}
+      {this.state.error && <Redirect to='/error' />}
 
       {!this.state.isLoading && !this.state.error &&
         <article className='single-film'>
