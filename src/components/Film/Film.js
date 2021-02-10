@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Error from '../Error/Error'
+import { Redirect } from 'react-router-dom';
 import apiCalls from './../../api-calls';
 import './Film.css';
 
@@ -79,9 +79,11 @@ class Film extends Component {
 
   render() {
     return (
+
       <>
       {this.state.isLoading && <h2>Looking for your movie...</h2>}
-      {this.state.error && <Error />}
+
+      {this.state.error ? <Redirect to='/error' /> : null}
 
       {!this.state.isLoading && !this.state.error &&
         <article className='single-film'>
