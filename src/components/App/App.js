@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import Header from '../Header/Header';
 import Error from '../Error/Error';
 import Movies from '../Movies/Movies';
@@ -22,7 +22,6 @@ class App extends Component {
       .then(response => {
         if (response.ok) {
           return response.json();
-
         } else {
           this.setState({error: true, isLoading: false});
         }
@@ -38,23 +37,19 @@ class App extends Component {
         <Header />
         <div className="App">
           {this.state.isLoading && <h2 className='message'>Please wait...</h2>}
-          {this.state.error && <Error />}
-          {/* ok so I couldn't figure out how to get error to be routed without it breaking everything
-          so I went ahead and just left it conditional
-
-          I've also changed the Film path back to just the id
-
-          I think for MVP we just don't route Error
-          */}
 
           <Route
             exact
             path='/'
-            render={() =>
-              <Movies movies={this.state.movies} />
+            render={() => {
+                if(!this.state.error){
+                  return <Movies movies={this.state.movies} />
+                } else {
+                  return <Redirect to='/error' />
+                }
+              }
             }
           />
-
 
           <Route
             exact
@@ -63,6 +58,12 @@ class App extends Component {
               const myMovieID = match.params.id;
               return <Film id={myMovieID}/>
             } }
+          />
+
+          <Route
+            exact
+            path='/error'
+            render={() => <Error />}
           />
         </div>
       </>
