@@ -30,14 +30,6 @@ class App extends Component {
       .catch(() => this.setState({isLoading: false, error: true}))
   }
 
-  // checkForError = films => {
-  //   if(!films) {
-  //     this.setState({error: true, isLoading: false})
-  //   } else {
-  //     this.setState({movies: films.movies, isLoading: false})
-  //   }
-  // }
-
   render() {
     return (
       <>
