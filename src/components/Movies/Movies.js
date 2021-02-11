@@ -21,7 +21,7 @@ const Movies = ({ movies }) => {
       {movieCards}
     </section>
   );
-}
+};
 
 export default Movies;
 
