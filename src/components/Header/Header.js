@@ -15,7 +15,7 @@ const Header = () => {
           />
       </NavLink>
     </header>
-  )
-}
+  );
+};
 
 export default Header;
