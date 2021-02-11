@@ -23,11 +23,6 @@ describe('Radioactive Toothbrushes', () => {
       cy.get('div').contains('Please wait...')
     })
 
-    //how do we test API isn't functioning?
-    // it('Should display an error message', () => {
-      //   cy.get('div').contains('We are having a technical difficulty')
-      // })
-
       it('Should display the listed movies', () => {
         cy.get('.movies-container')
           .should('be.visible')
@@ -90,14 +85,6 @@ describe('Radioactive Toothbrushes', () => {
         .click()
         .get('h2').should('be.visible')
     });
-
-    //how do we test API isn't functioning?
-    // it('Should have an error message', () => {
-    //   cy.get('section > article')
-    //     .contains('Mulan')
-    //     .click()
-    //     .get('h2').should('be.visible')
-    // });
 
     it('Should be able to display a single movie\'s details', () => {
       cy.get('section > a')
@@ -164,4 +151,36 @@ describe('Radioactive Toothbrushes', () => {
           .get('.card > img').should('have.attr', 'alt')
     });
   });
+
+  describe.only('RT Error', () => {
+    it('Should display an error message if movies can\'t be loaded on home page', () => {
+    cy.fixture('Movies-data.json')
+      .then(movies => {
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+          statusCode: 404
+        })
+      });
+      cy.visit(baseURL)
+      cy.get('.error-message').should('be.visible')
+    })
+
+    it('Should display an error message if a film can\'t load', () => {
+      cy.fixture('Film-data.json')
+        .then(movie => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+            statusCode: 404,
+            movie: null
+          })
+        })
+      cy.visit(baseURL)
+      cy.get('section > a')
+        .contains('Mulan')
+        .click()
+        .get('.error-message')
+    })
+  })
 });
+//how do we test API isn't functioning?
+// it('Should display an error message', () => {
+  //   cy.get('div').contains('We are having a technical difficulty')
+  // })
