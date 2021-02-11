@@ -138,7 +138,7 @@ describe('Radioactive Toothbrushes', () => {
     //     .click()
     //     // .get('h2').should('be.visible');
     //     .get('.message').contains('Looking for your movie...');
-    });
+    // });
 
     it('Should be able to display a single movie\'s details', () => {
       cy.get('section > a')
@@ -180,7 +180,7 @@ describe('Radioactive Toothbrushes', () => {
       cy.visit(baseURL);
 
       cy.get('.error-message').should('be.visible');
-    })
+    });
 
     it('Should display an error message if a film can\'t load', () => {
       cy.fixture('Film-data.json')
