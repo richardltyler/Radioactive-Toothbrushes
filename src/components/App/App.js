@@ -14,14 +14,14 @@ class App extends Component {
       movies: [],
       isLoading: true,
       error: false
-    }
+    };
   }
 
   componentDidMount() {
     apiCalls.getAllMovies()
       .then(response => this.isResponseOk(response))
       .then(films => this.setState({movies: films.movies, isLoading: false}))
-      .catch(() => this.setState({isLoading: false, error: true}))
+      .catch(() => this.setState({isLoading: false, error: true}));
   }
 
   isResponseOk = (response) => {
