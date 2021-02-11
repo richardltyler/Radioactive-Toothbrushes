@@ -60,45 +60,6 @@ describe('Radioactive Toothbrushes', () => {
     });
   });
 
-  describe('RT Film', () => {
-    beforeEach(() => {
-      cy.fixture('Film-data.json')
-        .then(movie => {
-          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
-            body: movie
-          })
-        })
-
-      cy.fixture('Movies-data.json')
-        .then(movies => {
-          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
-            body: movies
-          })
-        });
-
-      cy.visit(baseURL);
-    });
-
-    it('Should have a loading message', () => {
-      cy.get('section > a')
-        .contains('Mulan')
-        .click()
-        .get('h2').should('be.visible')
-    });
-
-    it('Should be able to display a single movie\'s details', () => {
-      cy.get('section > a')
-        .contains('Mulan')
-        .click()
-        .get('h2').should('be.visible')
-        .get('article').should('be.visible')
-        .get('article > section > div').should('have.class', 'film-title-container')
-        .get('article > img').should('be.visible')
-        .get('article > section > article > h3').contains('Summary')
-        .get('article > section > article > h3').contains('Summary')
-    });
-  });
-
   describe('RT Movies', () => {
     beforeEach(() => {
       cy.fixture('Film-data.json')
@@ -152,7 +113,46 @@ describe('Radioactive Toothbrushes', () => {
     });
   });
 
-  describe.only('RT Error', () => {
+  describe('RT Film', () => {
+    beforeEach(() => {
+      cy.fixture('Film-data.json')
+      .then(movie => {
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
+          body: movie
+        })
+      })
+
+      cy.fixture('Movies-data.json')
+      .then(movies => {
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+          body: movies
+        })
+      });
+
+      cy.visit(baseURL);
+    });
+
+    it('Should have a loading message', () => {
+      cy.get('section > a')
+      .contains('Mulan')
+      .click()
+      .get('h2').should('be.visible')
+    });
+
+    it('Should be able to display a single movie\'s details', () => {
+      cy.get('section > a')
+      .contains('Mulan')
+      .click()
+      .get('h2').should('be.visible')
+      .get('article').should('be.visible')
+      .get('article > section > div').should('have.class', 'film-title-container')
+      .get('article > img').should('be.visible')
+      .get('article > section > article > h3').contains('Summary')
+      .get('article > section > article > h3').contains('Summary')
+    });
+  });
+
+  describe('RT Error', () => {
     it('Should display an error message if movies can\'t be loaded on home page because of a client side error', () => {
     cy.fixture('Movies-data.json')
       .then(movies => {
@@ -175,7 +175,7 @@ describe('Radioactive Toothbrushes', () => {
       cy.get('.error-message').should('be.visible')
     })
 
-    it('Should display an error message if a film can\'t load because of a client side error', () => {
+    it('Should display an error message if a film can\'t load', () => {
       cy.fixture('Film-data.json')
         .then(movie => {
           cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
@@ -189,11 +189,11 @@ describe('Radioactive Toothbrushes', () => {
         .get('.error-message').should('be.visible')
     })
 
-    it('Should display an error message if a film can\'t load because of a server side error', () => {
+    it('Should display an error message if a film can\'t load', () => {
       cy.fixture('Film-data.json')
         .then(movie => {
           cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
-            statusCode: 500,
+            statusCode: 404,
           })
         })
       cy.visit(baseURL)
