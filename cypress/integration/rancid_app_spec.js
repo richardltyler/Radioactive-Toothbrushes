@@ -169,18 +169,13 @@ describe('Radioactive Toothbrushes', () => {
         .then(movie => {
           cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
             statusCode: 404,
-            movie: null
           })
         })
       cy.visit(baseURL)
       cy.get('section > a')
-        .contains('Mulan')
+        .contains('Money Plane')
         .click()
-        .get('.error-message')
+        .get('.error-message').should('be.visible')
     })
   })
 });
-//how do we test API isn't functioning?
-// it('Should display an error message', () => {
-  //   cy.get('div').contains('We are having a technical difficulty')
-  // })
