@@ -82,7 +82,7 @@ class Film extends Component {
     return (
 
       <>
-      {this.state.isLoading && <h2>Looking for your movie...</h2>}
+      {this.state.isLoading && <h2 className='message'>Looking for your movie...</h2>}
 
       {this.state.error && <Redirect to='/error' />}
 

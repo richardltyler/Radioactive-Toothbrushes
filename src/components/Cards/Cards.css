@@ -39,4 +39,8 @@
     color: #018994;
     cursor: pointer;
   }
+
+  .card:hover .card-poster {
+    box-shadow: 5px 3px 15px #E92731;
+  } 
 }

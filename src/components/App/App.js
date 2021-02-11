@@ -17,7 +17,7 @@ class App extends Component {
     }
   }
 
-   componentDidMount() {
+  componentDidMount() {
     apiCalls.getAllMovies()
       .then(response => this.isResponseOk(response))
       .then(films => this.setState({movies: films.movies, isLoading: false}))
