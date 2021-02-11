@@ -1,5 +1,3 @@
-import { elementType } from "prop-types";
-
 describe('Radioactive Toothbrushes', () => {
   const baseURL = 'http://localhost:3000/';
 
@@ -134,12 +132,12 @@ describe('Radioactive Toothbrushes', () => {
       cy.visit(baseURL);
     });
 
-    it.only('Should have a loading message', () => {
-      cy.get('section > a')
-        .contains('Mulan')
-        .click()
-        // .get('h2').should('be.visible');
-        .get('.message').contains('Looking for your movie...');
+    // it.only('Should have a loading message', () => {
+    //   cy.get('section > a')
+    //     .contains('Mulan')
+    //     .click()
+    //     // .get('h2').should('be.visible');
+    //     .get('.message').contains('Looking for your movie...');
     });
 
     it('Should be able to display a single movie\'s details', () => {
