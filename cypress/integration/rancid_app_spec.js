@@ -153,7 +153,7 @@ describe('Radioactive Toothbrushes', () => {
   });
 
   describe.only('RT Error', () => {
-    it('Should display an error message if movies can\'t be loaded on home page', () => {
+    it('Should display an error message if movies can\'t be loaded on home page because of a client side error', () => {
     cy.fixture('Movies-data.json')
       .then(movies => {
         cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
@@ -164,11 +164,36 @@ describe('Radioactive Toothbrushes', () => {
       cy.get('.error-message').should('be.visible')
     })
 
-    it('Should display an error message if a film can\'t load', () => {
+    it('Should display an error message if movies can\'t be loaded on home page because of a server side error', () => {
+    cy.fixture('Movies-data.json')
+      .then(movies => {
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+          statusCode: 500
+        })
+      });
+      cy.visit(baseURL)
+      cy.get('.error-message').should('be.visible')
+    })
+
+    it('Should display an error message if a film can\'t load because of a client side error', () => {
       cy.fixture('Film-data.json')
         .then(movie => {
           cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
             statusCode: 404,
+          })
+        })
+      cy.visit(baseURL)
+      cy.get('section > a')
+        .contains('Money Plane')
+        .click()
+        .get('.error-message').should('be.visible')
+    })
+
+    it('Should display an error message if a film can\'t load because of a server side error', () => {
+      cy.fixture('Film-data.json')
+        .then(movie => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+            statusCode: 500,
           })
         })
       cy.visit(baseURL)
