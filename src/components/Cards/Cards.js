@@ -16,7 +16,7 @@ const Card = ({id, poster, title}) => {
       </article>
     </NavLink>
   );
-}
+};
 
 export default Card;
 
