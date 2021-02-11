@@ -21,13 +21,12 @@
 }
 
 .card-title {
+  height: 1.2rem;
   margin-top: .5rem;
   text-align: center;
   font-size: 1.1rem;
   font-family: Rubik, sans-serif;
   font-weight: 500;
-  height: 1.2rem;
-
 }
 
 @media screen and (min-width: 1024px) {
