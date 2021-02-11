@@ -185,7 +185,7 @@ describe('Radioactive Toothbrushes', () => {
 
     it('Should display an error message if a film can\'t load', () => {
       cy.fixture('Film-data.json')
-        .then(movie => {
+        .then(() => {
           cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
             statusCode: 404,
           })
@@ -201,7 +201,7 @@ describe('Radioactive Toothbrushes', () => {
 
     it('Should display an error message if a film can\'t load', () => {
       cy.fixture('Film-data.json')
-        .then(movie => {
+        .then(() => {
           cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
             statusCode: 404,
           })
