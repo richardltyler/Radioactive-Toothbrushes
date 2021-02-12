@@ -1,101 +1,217 @@
 describe('Radioactive Toothbrushes', () => {
-
   const baseURL = 'http://localhost:3000/';
 
-  beforeEach(() => {
-    cy.visit(baseURL);
-  });
-
   describe('App', () => {
+    beforeEach(() => {
+      cy.fixture('Movies-data.json')
+        .then(movies => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+            body: movies
+          })
+        });
+
+      cy.visit(baseURL);
+    });
+
     it('Should display a header', () => {
-      cy.get('header').should('be.visible')
+      cy.get('header').should('be.visible');
     });
 
     it('Should display a loading message', () => {
-      cy.get('div').contains('Please wait...')
-    })
+      cy.get('div').contains('Please wait...');
+    });
 
-    //how do we test API isn't functioning?
-    // it('Should display an error message', () => {
-    //   cy.get('div').contains('We are having a technical difficulty')
-    // })
-
-    // how do we test how many movies there are in the API
     it('Should display the listed movies', () => {
       cy.get('.movies-container')
-        .should('be.visible')
+        .should('be.visible');
     });
   });
 
   describe('RT Header', () => {
+    beforeEach(() => {
+      cy.fixture('Film-data.json')
+        .then(movie => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
+            body: movie
+          })
+        });
+
+      cy.fixture('Movies-data.json')
+        .then(movies => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+            body: movies
+          })
+        });
+
+      cy.visit(baseURL);
+    });
+
     it('Should have a title/logo', () => {
-      cy.get('h1').contains('Radioactive Toothbrushes')
+      cy.get('h1').contains('Radioactive Toothbrushes');
     });
 
     it('Should click home icon to navigate back to main', () => {
-      cy.get('section > article')
+      cy.get('section > a')
         .contains('Mulan')
-        .click()
-      cy.get('header > img').click();
+        .click();
+
+      cy.get('header > a').click();
+    });
+  });
+
+  describe('RT Movies', () => {
+    beforeEach(() => {
+      cy.fixture('Film-data.json')
+        .then(movie => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+            body: movie
+          })
+        });
+
+      cy.fixture('Movies-data.json')
+        .then(movies => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+            body: movies
+          })
+        });
+
+      cy.visit(baseURL);
+    });
+
+    it('Should display many movie cards', () => {
+      cy.get('.movies-container').should(($article) => {
+        expect($article).to.have.length;
+
+        expect($article.first()).to.contain('Money Plane');
+      });
+    });
+
+    it('Should contain clickable movie cards', () => {
+      cy.get('.movies-container > a').contains('Money Plane').click();
+    });
+  });
+
+  describe('RT Card', () => {
+    beforeEach(() => {
+      cy.fixture('Movies-data.json')
+        .then(movies => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+            body: movies
+          })
+        });
+
+      cy.visit(baseURL);
+    });
+
+    it('Should display a movie card with an id', () => {
+        cy.get('.card').should('have.attr', 'id');
+    });
+
+    it('Should have an img with alt text', () => {
+        cy.get('.card > img')
+          .get('.card > img').should('have.attr', 'alt');
     });
   });
 
   describe('RT Film', () => {
-    it('Should have a loading message', () => {
-      //set up to access Film
-      cy.get('section > article')
-        .contains('Mulan')
-        .click()
-        //inside of Film
-        .get('h2').should('be.visible')
+    beforeEach(() => {
+      cy.fixture('Film-data.json')
+        .then(movie => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
+            body: movie
+          })
+        });
+
+      cy.fixture('Movies-data.json')
+        .then(movies => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+            body: movies
+          })
+        });
+
+      cy.visit(baseURL);
     });
 
-    //how do we test API isn't functioning?
-    // it('Should have an error message', () => {
-    //   cy.get('section > article')
+    // it.only('Should have a loading message', () => {
+    //   cy.get('section > a')
     //     .contains('Mulan')
     //     .click()
-    //     .get('h2').should('be.visible')
+    //     // .get('h2').should('be.visible');
+    //     .get('.message').contains('Looking for your movie...');
     // });
 
-    //how do we test that API is functioning?
     it('Should be able to display a single movie\'s details', () => {
-      //set up to access Film
-      cy.get('section > article')
+      cy.get('section > a')
         .contains('Mulan')
         .click()
-        //inside of Film
         .get('h2').should('be.visible')
         .get('article').should('be.visible')
         .get('article > section > div').should('have.class', 'film-title-container')
         .get('article > img').should('be.visible')
         .get('article > section > article > h3').contains('Summary')
-        .get('article > section > article > h3').contains('Summary')
+        .get('article > section > article > h3').contains('Summary');
     });
   });
 
-  describe('RT Movies', () => {
-    it('Should display many movie cards', () => {
-      cy.get('.movies-container').should(($article) => {
-        expect($article).to.have.length
-        expect($article.first()).to.contain('Money Plane')
-      });
+  describe('RT Error', () => {
+    it('Should display an error message if movies can\'t be loaded on home page because of a client side error', () => {
+      cy.fixture('Movies-data.json')
+        .then(movies => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+            statusCode: 404,
+            body: movies
+          })
+        });
+
+      cy.visit(baseURL);
+
+      cy.get('.error-message').should('be.visible');
+    })
+
+    it('Should display an error message if movies can\'t be loaded on home page because of a server side error', () => {
+      cy.fixture('Movies-data.json')
+        .then(movies => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+            statusCode: 500,
+            body: movies
+          })
+        });
+
+      cy.visit(baseURL);
+
+      cy.get('.error-message').should('be.visible');
     });
 
-    it('Should contain clickable movie cards', () =>{
-      cy.get('.movies-container > article').contains('Money Plane').click()
-    });
-  });
+    it('Should display an error message if a film can\'t load', () => {
+      cy.fixture('Film-data.json')
+        .then(() => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+            statusCode: 404,
+          })
+        });
 
-  describe('RT Card', () => {
-    it('Should display a movie card with an id', () => {
-        cy.get('.card').should('have.attr', 'id')
-        //how to test for functions/methods
+      cy.visit(baseURL);
+
+      cy.get('section > a')
+        .contains('Money Plane')
+        .click()
+        .get('.error-message').should('be.visible');
     });
 
-    it('Should have an img with alt text', () => {
-        cy.get('.card > img')
-          .get('.card > img').should('have.attr', 'alt')
+    it('Should display an error message if a film can\'t load', () => {
+      cy.fixture('Film-data.json')
+        .then(() => {
+          cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+            statusCode: 404,
+          })
+        });
+
+      cy.visit(baseURL);
+
+      cy.get('section > a')
+        .contains('Money Plane')
+        .click()
+        .get('.error-message').should('be.visible');
     });
   });
 });

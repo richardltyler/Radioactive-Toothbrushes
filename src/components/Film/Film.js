@@ -18,18 +18,17 @@ class Film extends Component {
       .then(film => this.checkForError(film))
       .catch(() => this.setState({isLoading: false, error: true }));
   }
-  //a single object with further details (more data)
 
   checkForError = film => {
     if(film.error) {
-      this.setState({error: true, isLoading: false})
+      this.setState({error: true, isLoading: false});
     } else {
-      this.setState({currentMovie: film.movie, isLoading: false})
+      this.setState({currentMovie: film.movie, isLoading: false});
     }
   }
 
   getGenres = () => {
-    return <h4 className='genre-display'>{this.state.currentMovie.genres.join(', ')}</h4>
+    return <h4 className='genre-display'>{this.state.currentMovie.genres.join(', ')}</h4>;
   }
 
   formatMoney = money => {
@@ -40,7 +39,7 @@ class Film extends Component {
         <h4>{`${name}:`}</h4>
         <h5>{`${this.getNumberAmount(money)}`}</h5>
       </>
-    )
+    );
   }
 
   getNumberAmount = amount => {
@@ -60,7 +59,7 @@ class Film extends Component {
       return `$${newNum}bil`;
 
     } else {
-      return `$${parseInt(number)}`
+      return `$${parseInt(number)}`;
     }
   }
 
@@ -68,7 +67,7 @@ class Film extends Component {
     const newDate = new Date(this.state.currentMovie.release_date).toDateString();
     const dateWithoutDay = newDate.split(' ').slice(1);
 
-    return <h4>{dateWithoutDay.join(' ')}</h4>
+    return <h4>{dateWithoutDay.join(' ')}</h4>;
   }
 
   formatRating = () => {
@@ -82,39 +81,39 @@ class Film extends Component {
     return (
 
       <>
-      {this.state.isLoading && <h2>Looking for your movie...</h2>}
+        {this.state.isLoading && <h2 className='message'>Looking for your movie...</h2>}
 
-      {this.state.error && <Redirect to='/error' />}
+        {this.state.error && <Redirect to='/error' />}
 
-      {!this.state.isLoading && !this.state.error &&
-        <article className='single-film'>
-          <section className='film-details'>
-            <div className='film-title-container'>
-              <h2 className='title'>{this.state.currentMovie.title}</h2>
-              {this.state.currentMovie.average_rating && this.formatRating()}
-            </div>
-            <h3>{this.state.currentMovie.tagline}</h3>
-            <div className='info-container'>
-              <h4>{`${this.state.currentMovie.runtime} min`}</h4>
-              {this.state.currentMovie.genres && this.getGenres()}
-              {this.formatDate()}
-            </div>
-          </section>
-          <img src={this.state.currentMovie.poster_path} alt={this.state.currentMovie.title} />
-          <section className='overview'>
-            <article className='summary' aria-label='summary'>
-              <h3 className='summary-headline'>Summary:</h3>
-              <p>{this.state.currentMovie.overview}</p>
-            </article>
-            <div className='money-container'>
-              {this.state.currentMovie.budget > 0 && this.formatMoney('budget')}
-              {this.state.currentMovie.revenue > 0 && this.formatMoney('revenue')}
-            </div>
-          </section>
-        </article>
-      }
+        {!this.state.isLoading && !this.state.error &&
+          <article className='single-film'>
+            <section className='film-details'>
+              <div className='film-title-container'>
+                <h2 className='title'>{this.state.currentMovie.title}</h2>
+                {this.state.currentMovie.average_rating && this.formatRating()}
+              </div>
+              <h3>{this.state.currentMovie.tagline}</h3>
+              <div className='info-container'>
+                <h4>{`${this.state.currentMovie.runtime} min`}</h4>
+                {this.state.currentMovie.genres && this.getGenres()}
+                {this.formatDate()}
+              </div>
+            </section>
+            <img src={this.state.currentMovie.poster_path} alt={this.state.currentMovie.title} />
+            <section className='overview'>
+              <article className='summary' aria-label='summary'>
+                <h3 className='summary-headline'>Summary:</h3>
+                <p>{this.state.currentMovie.overview}</p>
+              </article>
+              <div className='money-container'>
+                {this.state.currentMovie.budget > 0 && this.formatMoney('budget')}
+                {this.state.currentMovie.revenue > 0 && this.formatMoney('revenue')}
+              </div>
+            </section>
+          </article>
+        }
       </>
-    )
+    );
   }
 }
 

@@ -2,16 +2,16 @@
 
 header {
   height: 5rem;
+  width: 100%;
   background: #E92731;
   color: black;
+  border-bottom: 8px solid #018994;
+  padding: .5rem;
+  position: fixed;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .5rem;
-  position: fixed;
-  width: 100%;
-  border-bottom: 8px solid #018994;
-  z-index: 1;
 }
 
 h1 {
