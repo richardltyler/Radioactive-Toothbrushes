@@ -26,40 +26,40 @@ To view please:
 
 - [Feature 4](#feature-4)
 
-#### Feature 1
+#### Home Page
 Brief explanation/how to
 
 <details>
 <summary>Example of Experience</summary>
 <br>
-<img src="https://s.yimg.com/ny/api/res/1.2/f1iKnssDUbiubpYS7u2gGQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9MTI4MDtoPTk2MA--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/c89a5ed8196dedbe1c95c20d3414ff83">
+ <img width="283" alt="all movies" src="https://user-images.githubusercontent.com/70095063/107731695-d6958100-6cb3-11eb-9580-cbf191a082d5.png">
 </details>
 
-#### Feature 2
+#### Selecting a Movie
 Brief explanation/how to
 
 <details>
 <summary>Example of Experience</summary>
 <br>
-<img src="https://s.yimg.com/ny/api/res/1.2/f1iKnssDUbiubpYS7u2gGQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9MTI4MDtoPTk2MA--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/c89a5ed8196dedbe1c95c20d3414ff83">
+<img width="283" alt="selecting Onward" src="https://media.giphy.com/media/zIcgOXSX5cnDSOqdOu/giphy.gif">
 </details>
 
-#### Feature 3
+#### Going Back to the Home Page
 Brief explanation/how to
 
 <details>
 <summary>Example of Experience</summary>
 <br>
-<img src="https://s.yimg.com/ny/api/res/1.2/f1iKnssDUbiubpYS7u2gGQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9MTI4MDtoPTk2MA--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/c89a5ed8196dedbe1c95c20d3414ff83">
+<img width="283" alt="naviagating to home"src="https://media.giphy.com/media/mYgdbke1WUK4esKJWv/giphy.gif">
 </details>
 
-#### Feature 4
+#### Error Message
 Brief explanation/how to
 
 <details>
 <summary>Example of Experience</summary>
 <br>
-<img src="https://s.yimg.com/ny/api/res/1.2/f1iKnssDUbiubpYS7u2gGQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9MTI4MDtoPTk2MA--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/c89a5ed8196dedbe1c95c20d3414ff83">
+<img width="283" alt="naviagating to home"src="https://media.giphy.com/media/z8GC8cC5V8zGV7ZYe7/giphy.gif">
 </details>
 
 ## Technologies
