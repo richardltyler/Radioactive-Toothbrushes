@@ -18,13 +18,13 @@ To view please:
 - has desktop & mobile features
 
 ### Categories:
-- [Feature 1](#feature-1)
+- [Home Page](#Home-Page)
 
-- [Feature 2](#feature-2)
+- [Selecting a Movie](#Selecting-a-movie)
 
-- [Feature 3](#feature-3)
+- [Going Back to the Home Page](#Going-back-to-the-Home-Page)
 
-- [Feature 4](#feature-4)
+- [Error Message](#Error-Message)
 
 #### Home Page
 Brief explanation/how to
