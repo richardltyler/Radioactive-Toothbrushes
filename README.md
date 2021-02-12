@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# ☢️🪥 Radioactive Toothbrushes ☢️🪥
+---
+#### Table of Contents
+- [Introduction](#Introduction)
+- [Features](#Features)
+- [Technologies](#Techologies)
+- [Contributions](#Contributions)
+- [Authors](#Authors)
+---
+## Introduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Designed with multi-screen viewing in mind, this is a variation of the project set forth by Turing School of Software and Design. [See rubric here](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html).
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+To view please:
+- please visit [here](https://gaj23.github.io/) to interact and view
+- has desktop & mobile features
 
-### `npm start`
+### Categories:
+- [Feature 1](#feature-1)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Feature 2](#feature-2)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Feature 3](#feature-3)
 
-### `npm test`
+- [Feature 4](#feature-4)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Feature 1
+Brief explanation/how to
 
-### `npm run build`
+<details>
+<summary>Example of Experience</summary>
+<br>
+<img src="https://s.yimg.com/ny/api/res/1.2/f1iKnssDUbiubpYS7u2gGQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9MTI4MDtoPTk2MA--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/c89a5ed8196dedbe1c95c20d3414ff83">
+</details>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Feature 2
+Brief explanation/how to
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<details>
+<summary>Example of Experience</summary>
+<br>
+<img src="https://s.yimg.com/ny/api/res/1.2/f1iKnssDUbiubpYS7u2gGQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9MTI4MDtoPTk2MA--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/c89a5ed8196dedbe1c95c20d3414ff83">
+</details>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Feature 3
+Brief explanation/how to
 
-### `npm run eject`
+<details>
+<summary>Example of Experience</summary>
+<br>
+<img src="https://s.yimg.com/ny/api/res/1.2/f1iKnssDUbiubpYS7u2gGQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9MTI4MDtoPTk2MA--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/c89a5ed8196dedbe1c95c20d3414ff83">
+</details>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Feature 4
+Brief explanation/how to
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<details>
+<summary>Example of Experience</summary>
+<br>
+<img src="https://s.yimg.com/ny/api/res/1.2/f1iKnssDUbiubpYS7u2gGQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9MTI4MDtoPTk2MA--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/c89a5ed8196dedbe1c95c20d3414ff83">
+</details>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Technologies
+- React
+- Router
+- Cypress for Testing
+- CSS
+- HTML
+- [Flat Icon](https://www.flaticon.com/) for home icon
+- WAVE for accessibility auditing
+- Lighthouse for accessibility auditing
+- Webpack
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Future Iterations
 
-## Learn More
+More specifics about future work or refactoring can be found in this projects [GH issues](https://github.com/gaj23/rancid/issues).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Enter stuff here about further stretch goals that could be applied/why they weren't.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributions
 
-### Code Splitting
+Thank you <a href="https://github.com/cbdallavalle">Casey Dallavalle</a>, <a href="https://github.com/Corbinj22">Justin Corbin</a>, and <a href="https://github.com/letakeane"> Leta Keane</a> for your guidance and advice.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### To Contribute
+If you'd like to contribute to the code, please complete the following steps:
+- clone this repo locally: `git clone git@github.com:gaj23/rancid.git <renameHere>`
+- API documentation & endpoints are [here](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html)
+- from there please create a new branch following this pattern: `git checkout -b initials/feature-fix/focus-of-branch`
+- cd into your local copy and run `npm install`
+- Have Cypress for testing
+ - check that the following key-value pair in `scripts` is in your `package.json`
+ - `"cypress": "cypress open"`
+ - if not please download Cypress with `npm i -D cypress` and add the above to `scripts`.
+- contribute as you'd like and push up your work for review
+Thank you.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+<table>
+    <tr>
+        <td> Gabrielle Joyce <a href="https://github.com/gaj23">GH</td>
+        <td> Richard Tyler <a href="https://github.com/richardltyler">GH</td>
+    </tr>
+ <td><img src="https://avatars1.githubusercontent.com/u/68332132?s=460&u=a54dd9d3eede7c5ae0704846c510001c89dc88f7&v=4" alt="Ms. Joyce"
+ width="150" height="auto" /></td>
+ <td><img src="https://avatars.githubusercontent.com/u/70095063?s=400&u=39c274f1a2fbb88cc013de61aa8307596a988255&v=4" alt="Mr. Tyler"
+ width="150" height="auto" /></td>
+</table>
