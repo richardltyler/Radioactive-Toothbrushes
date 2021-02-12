@@ -1,9 +1,0 @@
-.movies-container {
-  width: 90%;
-  margin-top: 9rem;
-  display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
-  grid-gap: 16px;
-}
-
-
