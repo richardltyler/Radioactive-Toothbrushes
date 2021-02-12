@@ -18,7 +18,7 @@ As a team, we decided to polish off our work to create an MVP that meets [Iterat
 ## Features
 
 To view please:
-- please visit [here](https://github.com/gaj23/rancid/ to interact and view
+- please visit [here](https://gaj23.github.io/rancid/#/) to interact and view
 - has desktop & mobile features
 
 ### Categories:
