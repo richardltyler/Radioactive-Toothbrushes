@@ -103,7 +103,7 @@ If a problem with the API or perhaps the user wishes to navigate to a movie by u
 
 ## Future Iterations
 
-More specifics about future work or refactoring can be found in this projects [GH issues](https://github.com/gaj23/rancid/issues).
+More specifics about future work or refactoring can be found in this projects [GH issues](https://github.com/gaj23/rancid/issues), particularly, issue #28.
 
 Discussion about applying SCSS principals occurred at the beginning of our project. However, rather than get ahead of ourselves, we reoriented ourselves to keep the MVP in mind. A future iteration could include SCSS refactoring.
 
