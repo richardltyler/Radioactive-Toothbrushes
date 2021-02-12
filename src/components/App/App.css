@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
 .App {
   min-height: 100vh;
   display: flex;
@@ -10,4 +12,5 @@
 .message {
   position: relative;
   top: 6rem;
+  font-family: Rubik, sans-serif;
 }
