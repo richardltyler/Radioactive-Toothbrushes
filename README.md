@@ -54,7 +54,7 @@ A user can scroll through our movies and select a movie to gain further details 
 <summary>Example of Desktop Experience</summary>
 Note: hovering abilities exist on desktop & not on mobile.
 <br>
-<img width="500" alt="scrolling through desktop view" src="https://media.giphy.com/media/qjKbpHqCYsTCrKJYZN/giphy.gif">
+<img width="600" alt="scrolling through desktop view" src="https://media.giphy.com/media/qjKbpHqCYsTCrKJYZN/giphy.gif">
 </details>
 
 #### Going Back to the Home Page
@@ -70,7 +70,7 @@ Once a user is done reading the film's details, they then can click the home ico
 <summary>Example of Desktop Experience</summary>
 Note: hovering abilities exist on desktop & not on mobile.
 <br>
-<img width="500" alt="navigating to home on the desktop"src="https://media.giphy.com/media/3TjIb4h6bDEx1T1oXD/giphy.gif">
+<img width="600" alt="navigating to home on the desktop"src="https://media.giphy.com/media/3TjIb4h6bDEx1T1oXD/giphy.gif">
 </details>
 
 #### Error Message
@@ -87,7 +87,7 @@ If a problem with the API or perhaps the user wishes to navigate to a movie by u
 <details>
 <summary>Example of Cypress Experience</summary>
 <br>
-<img width="283" alt="testing user flow in cypress" src="https://media.giphy.com/media/P4NhDLMlkXlcwAKIcE/giphy.gif">
+<img width="600" alt="testing user flow in cypress" src="https://media.giphy.com/media/P4NhDLMlkXlcwAKIcE/giphy.gif">
 </details>
 
 ## Technologies
