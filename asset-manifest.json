@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/rancid/static/css/main.11a02b23.chunk.css",
+    "main.js": "/rancid/static/js/main.5070c235.chunk.js",
+    "main.js.map": "/rancid/static/js/main.5070c235.chunk.js.map",
+    "runtime-main.js": "/rancid/static/js/runtime-main.9fe350ae.js",
+    "runtime-main.js.map": "/rancid/static/js/runtime-main.9fe350ae.js.map",
+    "static/js/2.e21d92d7.chunk.js": "/rancid/static/js/2.e21d92d7.chunk.js",
+    "static/js/2.e21d92d7.chunk.js.map": "/rancid/static/js/2.e21d92d7.chunk.js.map",
+    "index.html": "/rancid/index.html",
+    "static/css/main.11a02b23.chunk.css.map": "/rancid/static/css/main.11a02b23.chunk.css.map",
+    "static/js/2.e21d92d7.chunk.js.LICENSE.txt": "/rancid/static/js/2.e21d92d7.chunk.js.LICENSE.txt",
+    "static/media/home.e53ae88a.png": "/rancid/static/media/home.e53ae88a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9fe350ae.js",
+    "static/js/2.e21d92d7.chunk.js",
+    "static/css/main.11a02b23.chunk.css",
+    "static/js/main.5070c235.chunk.js"
+  ]
+}
