@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+
+header {
+  height: 5rem;
+  width: 100%;
+  background: #E92731;
+  color: black;
+  border-bottom: 8px solid #018994;
+  padding: .5rem;
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  width: 60%;
+  font-family: Rubik, sans-serif;
+  text-shadow: 1px 2px 10px #018994, 0 0 0.2em #fff;
+}
+
+.home-icon {
+  align-self: flex-start;
+  width: 2rem;
+  margin-right: 0.9rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .home-icon:hover {
+    border: 3px solid #fff;
+    border-radius: 99%;
+  }
+}
+
