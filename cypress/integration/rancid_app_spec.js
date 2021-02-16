@@ -132,13 +132,11 @@ describe('Radioactive Toothbrushes', () => {
       cy.visit(baseURL);
     });
 
-    // it.only('Should have a loading message', () => {
-    //   cy.get('section > a')
-    //     .contains('Mulan')
-    //     .click()
-    //     // .get('h2').should('be.visible');
-    //     .get('.message').contains('Looking for your movie...');
-    // });
+    it('Should have a loading message when the film\'s url is visited', () => {
+      cy.visit(baseURL);
+      cy.visit(`${baseURL}/film/337401`)
+      .get('div > h2').should('be.visible').contains("Please wait")
+    });
 
     it('Should be able to display a single movie\'s details', () => {
       cy.get('section > a')
